@@ -1,0 +1,21 @@
+{
+  "name": "NewOriginBackend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:OriginGG/NewOriginBackend.git",
+  "author": "Brandon Simon <brandon@successmarketingsystems.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@apollo/gateway": "^0.16.6",
+    "@graphile/federation": "^0.0.3",
+    "@types/node": "^14.0.13",
+    "apollo-server": "^2.14.4",
+    "axios": "^0.19.2",
+    "express": "^4.17.1",
+    "graphql-type-json": "^0.3.2",
+    "postgraphile": "^4.7.0",
+    "postgraphile-plugin-connection-filter": "^2.0.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5"
+  }
+}

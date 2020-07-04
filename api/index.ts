@@ -20,9 +20,9 @@ const typeDefs = gql`
 
 const resolvers = {
     // example of extending postgraphile defined type
-    //OrganisationAccount: {
-    //    specialField: () => 'phil'
-    //},
+    OrganisationAccount: {
+        specialField: () => 'phil'
+    },
     // example of adding new top level queries
     Query: {
         async getYouTubeChannels(_, args) {

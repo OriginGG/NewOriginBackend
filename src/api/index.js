@@ -1,29 +1,17 @@
 import { ApolloServer, gql } from 'apollo-server'
 import GraphQLJSON from 'graphql-type-json';
 import axios from 'axios'
-import config from '../config/index';
+import config from '../../config/index';
 import { buildFederatedSchema } from '@apollo/federation';
 
 const typeDefs = gql`
     scalar JSON
-    extend type OrganisationAccount @key(fields: "nodeId") {
-        nodeId: ID! @external
-        specialField: String!
-    }
     extend type Query {
-        getYouTubeChannels(id: String!): YouTubeResponse
-    }
-    type YouTubeResponse {
-
+        getYouTubeChannels(id: String!): JSON 
     }
 `;
 
 const resolvers = {
-    // example of extending postgraphile defined type
-    OrganisationAccount: {
-        specialField: () => 'phil'
-    },
-    // example of adding new top level queries
     Query: {
         async getYouTubeChannels(_, args) {
             const url = `https://www.googleapis.com/youtube/v3/channels?part=id%2Csnippet%2Cstatistics%2CcontentDetails%2CtopicDetails&id=${args.channel}&key=${YOUTUBE_API_KEY}`;

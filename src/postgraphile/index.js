@@ -1,6 +1,6 @@
 import * as express from 'express'
 import { postgraphile } from 'postgraphile'
-import config from '../config/index';
+import config from '../../config/index';
 import FederationPlugin from "@graphile/federation";
 
 const app = express();

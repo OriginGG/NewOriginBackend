@@ -1,6 +1,6 @@
 import { ApolloServer } from 'apollo-server';
 import { ApolloGateway } from '@apollo/gateway';
-import config from './config/index';
+import config from '../config/index';
 
 const gateway = new ApolloGateway({
   serviceList: [

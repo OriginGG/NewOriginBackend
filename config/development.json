@@ -8,5 +8,13 @@
         "graphiql": true,
         "port": 80,
         "body_size_limit": "5MB"
+    },
+    "api": {
+        "port": 4001,
+        "url": "http://localhost:4001"
+    },
+    "gateway": {
+        "port": 8001,
+        "url": "http://localhost:8001"
     }
 }

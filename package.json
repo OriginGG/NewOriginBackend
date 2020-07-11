@@ -17,5 +17,10 @@
     "postgraphile-plugin-connection-filter": "^2.0.0",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.5"
+  },
+  "scripts": {
+    "start-postgraphile": "ts-node src/postgraphile/index.ts",
+    "start-api": "ts-node src/api/index.ts",
+    "start-gateway": "ts-node src/gateway.ts"
   }
 }

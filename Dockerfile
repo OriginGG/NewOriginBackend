@@ -12,4 +12,3 @@ RUN npm run start-api
 FROM a as gateway
 RUN npm install
 RUN npm run start-gateway
-

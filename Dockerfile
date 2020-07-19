@@ -1,5 +1,6 @@
 FROM node:lts as a
 COPY . /app
+WORKDIR /app
 
 FROM a as postgraphile
 RUN npm install

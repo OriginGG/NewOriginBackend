@@ -6,7 +6,7 @@ const gateway = new ApolloGateway({
   serviceList: [
     { name: 'api', url: config.api.url },
     { name: 'postgraphile', url: config.postgraphile.url },
-  ],
+  ]
 });
 
 const server = new ApolloServer({

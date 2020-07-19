@@ -1,0 +1,34 @@
+version: '2'
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_DB: originGG 
+      POSTGRES_PASSWORD: allegro1234 
+      POSTGRES_USER: origin_postgraphql
+  postgraphile:
+    depends_on: 
+      - postgres
+    environment:
+      NODE_ENV: docker-local
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: postgraphile
+  api:
+    environment:
+      NODE_ENV: docker-local
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: api
+  gateway:
+    depends_on: 
+      - api 
+      - postgraphile
+    environment:
+      NODE_ENV: docker-local
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: gateway

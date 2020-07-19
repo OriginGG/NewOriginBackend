@@ -1,0 +1,21 @@
+{
+    "postgraphile": {
+        "host": "postgres://origin_postgraphql:allegro1234@postgres:5432/originGG",
+        "default_role": "origin_anonymous",
+        "schema_name": "origin",
+        "jwt_secret": "bbo9Q4jsIkfQ1gkpolQAKLXO4WZ-s3SEcvo3gHwfxCEM_IBSisDWzlwcmDKjVfH0",
+        "jwt_token" : "origin.jwt_token",
+        "graphiql": true,
+        "port" : 5000,
+        "url": "http://postgraphile:5000/graphql",
+        "body_size_limit": "5MB"
+    },
+    "api": {
+        "port": 4001,
+        "url": "http://api:4001"
+    },
+    "gateway": {
+        "port": 8001,
+        "url": "http://gateway:8001"
+    }
+}

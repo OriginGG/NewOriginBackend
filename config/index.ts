@@ -14,8 +14,11 @@ switch (NODE_ENV) {
     case 'development':
         configBuffer = fs.readFileSync(path.resolve(__dirname, 'development.json'), 'utf-8');
         break;
+    case 'docker-local':
+        configBuffer = fs.readFileSync(path.resolve(__dirname, 'docker-local.json'), 'utf-8');
+        break;
     default:
-        configBuffer = fs.readFileSync(path.resolve(__dirname, 'local.json'), 'utf-8');
+        configBuffer = fs.readFileSync(path.resolve(__dirname, 'docker-local.json'), 'utf-8');
 }
 
 let config = JSON.parse(configBuffer);

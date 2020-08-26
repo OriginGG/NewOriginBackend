@@ -34,6 +34,6 @@ const server = new ApolloServer({
 });
 
 
-server.listen(config.api.port).then(({ url }) => {
+server.listen(process.env.POSTGRAHILE_PORT).then(({ url }) => {
     console.log(`:rocket: Server ready at ${url}`);
 });

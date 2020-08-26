@@ -1,11 +1,11 @@
 import { ApolloServer } from 'apollo-server';
 import { ApolloGateway } from '@apollo/gateway';
-import config from '../config/index';
+import { apiUrl, postgraphileUrl, gatewayPort } from '../../config/gateway';
 
 const gateway = new ApolloGateway({
   serviceList: [
-    { name: 'api', url: process.env.API_PORT },
-    { name: 'postgraphile', url: process.env.POSTGRAPHILE_PORT },
+    { name: 'api', url: apiUrl },
+    { name: 'postgraphile', url: postgraphileUrl },
   ],
 });
 
@@ -14,6 +14,6 @@ const server = new ApolloServer({
   subscriptions: false,
 });
 
-server.listen(process.env.GATEWAY_PORT).then(({url}) => {
+server.listen(gatewayPort).then(({url}) => {
   console.log(`🚀 Server ready at ${url}`);
 });

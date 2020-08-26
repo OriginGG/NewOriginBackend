@@ -1,8 +1,8 @@
 import { ApolloServer, gql } from 'apollo-server'
 import GraphQLJSON from 'graphql-type-json';
 import axios from 'axios'
-import config from '../../config/index';
 import { buildFederatedSchema } from '@apollo/federation';
+import { apiPort } from '../../config/api';
 
 const typeDefs = gql`
     scalar JSON
@@ -34,6 +34,6 @@ const server = new ApolloServer({
 });
 
 
-server.listen(process.env.POSTGRAHILE_PORT).then(({ url }) => {
+server.listen(apiPort).then(({ url }) => {
     console.log(`:rocket: Server ready at ${url}`);
 });

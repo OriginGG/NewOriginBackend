@@ -1,6 +1,8 @@
 import { ApolloServer } from 'apollo-server';
 import { ApolloGateway } from '@apollo/gateway';
-import { apiUrl, postgraphileUrl, gatewayPort } from '../../config/gateway';
+import config from '../config/gateway';
+
+const { apiUrl, postgraphileUrl, gatewayPort } = config
 
 const gateway = new ApolloGateway({
   serviceList: [

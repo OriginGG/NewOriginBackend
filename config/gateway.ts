@@ -4,8 +4,8 @@ const { apiUrl, postgraphileUrl }  = (({
   POSTGRAPHILE_HOST, 
   POSTGRAPHILE_PORT
 }) => ({
-  apiUrl: `${API_HOST}:${API_PORT}`,
-  postgraphileUrl: `${POSTGRAPHILE_HOST}:${POSTGRAPHILE_PORT}`
+  apiUrl: `http://${process.env.API_HOST}:${process.env.API_PORT}`,
+  postgraphileUrl: `http://${process.env.POSTGRAPHILE_HOST}:${process.env.POSTGRAPHILE_PORT}/graphql`
 }))(process.env)
 
 export default {

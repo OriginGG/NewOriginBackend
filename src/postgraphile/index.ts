@@ -1,14 +1,16 @@
 import * as express from 'express'
-import { postgraphile } from 'postgraphile'
+import { postgraphile, PostGraphileOptions } from 'postgraphile'
 import config from '../../config/postgraphile';
-import FederationPlugin from "@graphile/federation";
-import pgSimplifyInflector from '@graphile-contrib/pg-simplify-inflector'
+import { ServerResponse } from 'http';
 
 const app = express();
 
-app.use(postgraphile(config.host, config.schema_name, {
-    ...config.options,
-    appendPlugins: [FederationPlugin, pgSimplifyInflector]
-}));
+app.use(
+    postgraphile(
+        config.host, 
+        config.schema_name, 
+        config.options as PostGraphileOptions<any, ServerResponse>
+    )
+);
 
-app.listen(config.postraphilePort);
+app.listen(config.postgraphilePort);

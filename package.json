@@ -9,19 +9,19 @@
     "@apollo/gateway": "^0.16.6",
     "@graphile-contrib/pg-simplify-inflector": "^6.0.0",
     "@graphile/federation": "^0.0.3",
-    "@types/node": "^14.0.13",
+    "@types/node": "^14.10.0",
     "apollo-server": "^2.14.4",
     "axios": "^0.19.2",
     "express": "^4.17.1",
     "graphql-type-json": "^0.3.2",
     "postgraphile": "^4.7.0",
     "postgraphile-plugin-connection-filter": "^2.0.0",
-    "ts-node": "^8.10.2",
+    "ts-node": "^9.0.0",
     "typescript": "^3.9.5"
   },
   "scripts": {
-    "start-api": "node src/api/index.js",
-    "start-postgraphile": "node src/postgraphile/index.js",
-    "start-gateway": "node src/gateway/index.js"
+    "start-api": "ts-node src/api/index.ts",
+    "start-postgraphile": "ts-node src/postgraphile/index.ts",
+    "start-gateway": "ts-node src/gateway.ts"
   }
 }

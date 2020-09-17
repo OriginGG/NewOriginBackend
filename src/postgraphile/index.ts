@@ -1,4 +1,4 @@
-import * as express from 'express'
+import  express from 'express'
 import { postgraphile, PostGraphileOptions } from 'postgraphile'
 import config from '../../config/postgraphile';
 import { ServerResponse } from 'http';

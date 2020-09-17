@@ -10,14 +10,17 @@
     "@graphile-contrib/pg-simplify-inflector": "^6.0.0",
     "@graphile/federation": "^0.0.3",
     "@types/node": "^14.10.0",
+    "@types/wait-on": "^4.0.0",
     "apollo-server": "^2.14.4",
     "axios": "^0.19.2",
     "express": "^4.17.1",
     "graphql-type-json": "^0.3.2",
     "postgraphile": "^4.7.0",
     "postgraphile-plugin-connection-filter": "^2.0.0",
+    "ramda": "^0.27.1",
     "ts-node": "^9.0.0",
-    "typescript": "^3.9.5"
+    "typescript": "^3.9.5",
+    "wait-on": "^5.2.0"
   },
   "scripts": {
     "start-api": "ts-node src/api/index.ts",

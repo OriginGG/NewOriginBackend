@@ -1,5 +1,6 @@
 import FederationPlugin from "@graphile/federation";
 import pgSimplifyInflector from '@graphile-contrib/pg-simplify-inflector'
+import { mergeDeepRight } from 'ramda'
 
 const dev = {
   host: "postgres://origin_postgraphql:allegro1234@origin-small-dev.cjdraitfnk0j.us-east-1.rds.amazonaws.com:5432/originGG?",
@@ -54,7 +55,9 @@ const prod = {
 
 const common = {
   postgraphilePort: process.env.POSTGRAPHILE_PORT,
-  appendPlugins: [pgSimplifyInflector, FederationPlugin]
+  options: {
+    appendPlugins: [pgSimplifyInflector, FederationPlugin]
+  }
 }
 
-export default Object.assign({}, common, process.env.NODE_ENV === 'production' ? prod : dev) 
+export default mergeDeepRight(common, process.env.NODE_ENV === 'production' ? prod : dev) 

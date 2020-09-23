@@ -2,6 +2,33 @@ import FederationPlugin from "@graphile/federation";
 import pgSimplifyInflector from '@graphile-contrib/pg-simplify-inflector'
 import { mergeDeepRight } from 'ramda'
 
+const local = {
+  host: process.env.POSTGRES_URL,
+  schema_name: "origin",
+  options: {
+    dynamicJson: true,
+    setofFunctionsContainNulls: false,
+    ignoreRBAC: false,
+    ignoreIndexes: false,
+    showErrorStack: "json",
+    extendedErrors: ["hint", "detail", "errcode"],
+    graphiql: true,
+    enhanceGraphiql: true,
+    allowExplain(req) {
+      return true;
+    },
+    enableQueryBatching: true,
+    legacyRelations: "omit",
+    jwtVerifyOptions: {
+        ignoreExpiration: true
+    },
+    default_role: "origin_anonymous",
+    jwt_secret: "bbo9QasdfASSD4jsIk31fQ1g44232kpolQ44AKA11LXO4WZ-s3SEcvo3gHwfxCEM_IBSisDWzlwcmDKjVfH0",
+    jwt_token: "origin.jwt_token",
+    body_size_limit: "5MB"
+  }
+}
+
 const dev = {
   host: "postgres://origin_postgraphql:allegro1234@origin-small-dev.cjdraitfnk0j.us-east-1.rds.amazonaws.com:5432/originGG?",
   schema_name: "origin",
@@ -60,4 +87,9 @@ const common = {
   }
 }
 
-export default mergeDeepRight(common, process.env.NODE_ENV === 'production' ? prod : dev) 
+export default mergeDeepRight(
+  common, 
+  process.env.NODE_ENV === 'production' 
+    ? prod 
+    : (process.env.NODE_ENV === 'development' ? dev : local)
+) 

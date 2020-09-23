@@ -1,12 +1,11 @@
 import { ApolloServer } from 'apollo-server';
 import { ApolloGateway } from '@apollo/gateway';
 import config from '../config/gateway';
-import waitOn from 'wait-on'
 
 const { apiUrl, postgraphileUrl, gatewayPort } = config;
 
 (async () => {
-  await waitOn({ resources: [ apiUrl, postgraphileUrl ]}).catch(console.error)
+  await new Promise(r => setTimeout(r, 10000)) 
   
   const gateway = new ApolloGateway({
     serviceList: [

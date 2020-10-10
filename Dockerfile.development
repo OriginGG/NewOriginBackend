@@ -1,0 +1,26 @@
+FROM ubuntu as dev 
+RUN apt update -y
+RUN apt install git -y
+COPY ~/.ssh/ ~/.ssh
+RUN curl -L https://raw.githubusercontent.com/tj/n/master/bin/n -o n
+RUN bash n lts
+RUN npm i -g yarn
+WORKDIR /repo
+RUN git clone $REPO_URL
+RUN yarn 
+
+FROM dev as postgraphile
+CMD yarn start-postgraphile-dev
+
+FROM dev as api
+CMD yarn start-api-dev
+
+FROM dev as gateway
+CMD yarn start-gateway-dev
+
+FROM dev as db-migrator 
+RUN apt install postgres-client -y
+CMD ["sleep", "infinity"]
+
+FROM dev as custom-domain-config
+CMD yarn start-custom-domain-config-dev

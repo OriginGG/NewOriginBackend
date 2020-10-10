@@ -1,15 +1,19 @@
 FROM node:lts as a
 COPY . /app
 WORKDIR /app
+RUN yarn 
 
 FROM a as postgraphile
-RUN yarn 
 CMD yarn start-postgraphile
 
 FROM a as api
-RUN yarn 
 CMD yarn start-api
 
 FROM a as gateway
-RUN yarn
 CMD yarn start-gateway
+
+FROM a as db-migrator 
+CMD yarn db-migrate-up
+
+FROM a as custom-domain-config
+CMD yarn start-custom-domain-config

@@ -3,8 +3,6 @@ import pgSimplifyInflector from '@graphile-contrib/pg-simplify-inflector'
 import { mergeDeepRight } from 'ramda'
 
 const local = {
-  host: process.env.POSTGRES_URL,
-  schema_name: "origin",
   options: {
     dynamicJson: true,
     setofFunctionsContainNulls: false,
@@ -30,8 +28,6 @@ const local = {
 }
 
 const dev = {
-  host: "postgres://origin_postgraphql:allegro1234@origin-small-dev.cjdraitfnk0j.us-east-1.rds.amazonaws.com:5432/originGG?",
-  schema_name: "origin",
   options: {
     dynamicJson: true,
     setofFunctionsContainNulls: false,
@@ -57,8 +53,6 @@ const dev = {
 }
 
 const prod = {
-  schema_name: "origin",
-  host: "postgres://origin_postgraphql:allegro1234@origin-production-small.cjdraitfnk0j.us-east-1.rds.amazonaws.com:5432/originGGNew?",
   options: {
     retryOnInitFail: true,
     dynamicJson: true,
@@ -82,6 +76,8 @@ const prod = {
 
 const common = {
   postgraphilePort: process.env.POSTGRAPHILE_PORT,
+  schema_name: process.env.PGSCHEMA,
+  host: `postgres://${process.env.PGUSER}:${process.env.PGPASSWORD}@${process.env.PGHOST}:5432/${process.env.PGDATABASE}`,
   options: {
     appendPlugins: [pgSimplifyInflector, FederationPlugin]
   }

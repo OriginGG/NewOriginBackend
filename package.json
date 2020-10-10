@@ -10,21 +10,37 @@
     "@graphile-contrib/pg-simplify-inflector": "^6.0.0",
     "@graphile/federation": "^0.0.3",
     "@types/node": "^14.10.0",
+    "@types/pg": "^7.14.5",
     "@types/wait-on": "^4.0.0",
     "apollo-server": "^2.14.4",
     "axios": "^0.19.2",
     "express": "^4.17.1",
     "graphql-type-json": "^0.3.2",
+    "pg": "^8.4.1",
     "postgraphile": "^4.7.0",
     "postgraphile-plugin-connection-filter": "^2.0.0",
     "ramda": "^0.27.1",
+    "sql-template-strings": "^2.2.2",
     "ts-node": "^9.0.0",
     "typescript": "^3.9.5",
     "wait-on": "^5.2.0"
   },
   "scripts": {
     "start-api": "ts-node src/api/index.ts",
+    "start-api-dev": "nodemon --watch 'src/api/*.ts' --exec 'ts-node' src/api/index.ts",
     "start-postgraphile": "ts-node src/postgraphile/index.ts",
-    "start-gateway": "ts-node src/gateway.ts"
+    "start-postgraphile-dev": "nodemon --watch 'src/postgraphile/*.ts' --exec 'ts-node' src/postgraphile/index.ts",
+    "start-gateway": "ts-node src/gateway.ts",
+    "start-gateway-dev": "nodemon --watch 'src/gateway/*.ts' --exec 'ts-node' src/gateway/index.ts",
+    "start-custom-domain-config": "ts-node src/customDomainConfig/index.ts",
+    "start-custom-domain-config-dev": "nodemon --watch 'src/customDomainConfig/*.ts' --exec 'ts-node' src/customDomainConfig/index.ts",
+    "db-migrate-create": "db-migrate create --sql-file --config config/database.json",
+    "db-migrate-up": "db-migrate up --config config/database.json",
+    "db-migrate-down": "db-migrate down --config config/database.json",
+    "db-migrate-reset": "db-migrate reset --config config/database.json"
+  },
+  "devDependencies": {
+    "db-migrate": "^0.11.11",
+    "nodemon": "^2.0.4"
   }
 }

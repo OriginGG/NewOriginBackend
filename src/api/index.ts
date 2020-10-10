@@ -8,8 +8,13 @@ const { apiPort } = config
 
 const typeDefs = gql`
     scalar JSON
+
     extend type Query {
         getYouTubeChannels(id: String!): JSON 
+    }
+
+    extend type Mutation {
+
     }
 `;
 
@@ -26,6 +31,11 @@ const resolvers = {
             } else {
                 return {}
             }
+        }
+    },
+    Mutation: {
+        async checkDomainTxtRecord() {
+
         }
     },
     JSON: GraphQLJSON

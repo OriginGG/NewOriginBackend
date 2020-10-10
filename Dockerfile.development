@@ -1,13 +1,17 @@
 FROM ubuntu as dev 
 ARG REPO_URL
+ARG GITHUB_PASSWORD
+ARG GITHUB_USERNAME
 RUN apt update -y
 RUN apt install git -y
-COPY ~/.ssh/ ~/.ssh
+RUN git config --global credential.helper store
+RUN echo "https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com" >> ~/.git-credentials
+RUN apt install -y curl
 RUN curl -L https://raw.githubusercontent.com/tj/n/master/bin/n -o n
 RUN bash n lts
 RUN npm i -g yarn
+RUN git clone $REPO_URL /repo 
 WORKDIR /repo
-RUN git clone $REPO_URL
 RUN yarn 
 
 FROM dev as postgraphile
@@ -20,7 +24,7 @@ FROM dev as gateway
 CMD yarn start-gateway-dev
 
 FROM dev as db-migrator 
-RUN apt install postgres-client -y
+RUN apt install postgresql-client -y
 CMD ["sleep", "infinity"]
 
 FROM dev as custom-domain-config

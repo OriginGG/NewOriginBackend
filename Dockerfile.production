@@ -13,7 +13,7 @@ FROM a as gateway
 CMD yarn start-gateway
 
 FROM a as db-migrator 
-CMD yarn db-migrate-up
+CMD yarn knex-migrate:latest
 
 FROM a as custom-domain-config
 CMD yarn start-custom-domain-config

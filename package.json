@@ -18,6 +18,7 @@
     "graphile-build-pg": "^4.9.2",
     "graphql-type-json": "^0.3.2",
     "knex": "^0.21.8",
+    "knex-migrate": "^1.7.4",
     "pg": "^8.4.1",
     "postgraphile": "^4.7.0",
     "postgraphile-plugin-connection-filter": "^2.0.0",

@@ -16,7 +16,6 @@
     "axios": "^0.19.2",
     "express": "^4.17.1",
     "graphql-type-json": "^0.3.2",
-    "knex": "^0.21.8",
     "pg": "^8.4.1",
     "postgraphile": "^4.7.0",
     "postgraphile-plugin-connection-filter": "^2.0.0",
@@ -35,15 +34,13 @@
     "start-gateway-dev": "nodemon --watch 'src/gateway/*.ts' --exec 'ts-node' src/gateway.ts",
     "start-custom-domain-config": "ts-node src/customDomainConfig/index.ts",
     "start-custom-domain-config-dev": "nodemon --watch 'src/customDomainConfig/*.ts' --exec 'ts-node' src/customDomainConfig/index.ts",
-    "knex-migrate:make": "knex migrate:make",
-    "knex-migrate:latest": "knex migrate:latest",
-    "knex-migrate:up": "knex migrate:up",
-    "knex-migrate:rollback": "knex migrate:rollback",
-    "knex-migrate:reset": "knex migrate:rollback --all"
+    "db-migrate-create": "db-migrate create --sql-file --config config/database.json",
+    "db-migrate-up": "db-migrate up --config config/database.json",
+    "db-migrate-down": "db-migrate down --config config/database.json",
+    "db-migrate-reset": "db-migrate reset --config config/database.json"
   },
   "devDependencies": {
     "db-migrate": "^0.11.11",
-    "knex-migrate-sql-file": "^1.0.3",
     "nodemon": "^2.0.4"
   }
 }

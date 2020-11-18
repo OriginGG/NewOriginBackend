@@ -25,7 +25,7 @@ CMD yarn start-gateway-dev
 
 FROM dev as db-migrator 
 RUN apt install postgresql-client -y
-CMD ["sleep", "infinity"]
+CMD yarn db-migrate-up && sleep infinity 
 
 FROM dev as custom-domain-config
 CMD yarn start-custom-domain-config-dev

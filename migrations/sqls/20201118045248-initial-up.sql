@@ -22,6 +22,11 @@ SET row_security = off;
 
 CREATE SCHEMA origin;
 
+CREATE ROLE origin_anonymous;
+CREATE ROLE origin_user;
+CREATE ROLE origin_admin;
+CREATE ROLE origin_individual_user;
+
 
 ALTER SCHEMA origin OWNER TO origin;
 

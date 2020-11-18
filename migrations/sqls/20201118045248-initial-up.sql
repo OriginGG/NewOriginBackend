@@ -22,6 +22,7 @@ SET row_security = off;
 
 CREATE SCHEMA origin;
 
+CREATE ROLE rdsadmin;
 CREATE ROLE origin_anonymous;
 CREATE ROLE origin_user;
 CREATE ROLE origin_admin;

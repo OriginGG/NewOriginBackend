@@ -15,17 +15,17 @@ WORKDIR /repo
 RUN yarn 
 
 FROM dev as postgraphile
-CMD yarn start-postgraphile-dev
+CMD yarn start-postgraphile-dev || sleep infinity
 
 FROM dev as api
-CMD yarn start-api-dev
+CMD yarn start-api-dev || sleep infinity
 
 FROM dev as gateway
-CMD yarn start-gateway-dev
+CMD yarn start-gateway-dev || sleep infinity
 
 FROM dev as db-migrator 
 RUN apt install postgresql-client -y
-CMD yarn db-migrate-up && sleep infinity 
+CMD yarn db-migrate-up; sleep infinity
 
 FROM dev as custom-domain-config
-CMD yarn start-custom-domain-config-dev
+CMD yarn start-custom-domain-config-dev || sleep infinity

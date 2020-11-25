@@ -12,10 +12,6 @@ const typeDefs = gql`
     extend type Query {
         getYouTubeChannels(id: String!): JSON 
     }
-
-    extend type Mutation {
-
-    }
 `;
 
 const resolvers = {

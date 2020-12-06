@@ -9,7 +9,13 @@ export default hosts => {
         http: {
             routers: {
                 theme: {
-                    rule
+                    rule,
+                    service: 'theme-neworigindeploy@docker',
+                    entryPoints: ['websecure'],
+                    tls: {
+                        certResolver: 'letsencrypt'
+                    }
+            
                 }
             }
         }

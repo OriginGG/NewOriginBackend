@@ -29,6 +29,7 @@ const local = {
 
 const dev = {
   options: {
+    enableCors: true,
     dynamicJson: true,
     setofFunctionsContainNulls: false,
     ignoreRBAC: false,
@@ -79,7 +80,8 @@ const common = {
   schema_name: process.env.PGSCHEMA,
   host: `postgres://${process.env.PGUSER}:${process.env.PGPASSWORD}@${process.env.PGHOST}:5432/${process.env.PGDATABASE}`,
   options: {
-    appendPlugins: [pgSimplifyInflector, FederationPlugin]
+    simpleCollections: 'only',
+    appendPlugins: [pgSimplifyInflector]
   }
 }
 

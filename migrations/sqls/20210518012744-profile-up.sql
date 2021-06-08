@@ -2,5 +2,5 @@
 
 create table graphile.profile (
     id serial primary key,
-    data json
+    data jsonb
 );

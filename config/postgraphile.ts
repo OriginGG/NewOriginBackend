@@ -81,6 +81,7 @@ const common = {
   host: `postgres://${process.env.PGUSER}:${process.env.PGPASSWORD}@${process.env.PGHOST}:5432/${process.env.PGDATABASE}`,
   options: {
     simpleCollections: 'only',
+    enableCors: true,
     appendPlugins: [pgSimplifyInflector]
   }
 }

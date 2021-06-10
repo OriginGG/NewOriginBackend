@@ -4,7 +4,7 @@ import { mergeDeepRight } from 'ramda'
 
 const local = {
   options: {
-    dynamicJson: true,
+    watchPg: true,
     setofFunctionsContainNulls: false,
     ignoreRBAC: false,
     ignoreIndexes: false,
@@ -29,8 +29,6 @@ const local = {
 
 const dev = {
   options: {
-    enableCors: true,
-    dynamicJson: true,
     setofFunctionsContainNulls: false,
     ignoreRBAC: false,
     ignoreIndexes: false,
@@ -56,7 +54,6 @@ const dev = {
 const prod = {
   options: {
     retryOnInitFail: true,
-    dynamicJson: true,
     setofFunctionsContainNulls: false,
     ignoreRBAC: false,
     ignoreIndexes: false,
@@ -81,6 +78,7 @@ const common = {
   host: `postgres://${process.env.PGUSER}:${process.env.PGPASSWORD}@${process.env.PGHOST}:5432/${process.env.PGDATABASE}`,
   options: {
     simpleCollections: 'only',
+    dynamicJson: true,
     enableCors: true,
     appendPlugins: [pgSimplifyInflector]
   }

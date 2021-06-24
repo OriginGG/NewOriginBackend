@@ -1,8 +1,8 @@
 Arguments: 
-  /home/vscode/.nvm/versions/node/v14.17.0/bin/node /home/vscode/.nvm/versions/node/v14.17.0/bin/yarn
+  /usr/local/bin/node /usr/local/bin/yarn
 
 PATH: 
-  /home/vscode/.nvm/versions/node/v14.17.0/bin:/home/vscode/.vscode-server/bin/054a9295330880ed74ceaedda236253b4f39a335/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/vscode/.local/bin
+  /root/.vscode-server/bin/b4c1bd0a9b03c749ea011b06c6d2676c8091a70c/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.local/bin
 
 Yarn version: 
   1.22.10
@@ -14,7 +14,7 @@ Platform:
   linux x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@graphile-contrib/pg-simplify-inflector/-/pg-simplify-inflector-6.1.0.tgz: ENOENT: no such file or directory, open '/home/vscode/.cache/yarn/v6/npm-@graphile-contrib-pg-simplify-inflector-6.1.0-5ecb842bd43af4d3ffdfcd25b1e7c452374f7440-integrity/node_modules/@graphile-contrib/pg-simplify-inflector/.yarn-tarball.tgz'
+  Error: ENOTEMPTY: directory not empty, rmdir '/usr/local/share/.cache/yarn/v6/npm-rxjs-6.6.3-8ca84635c4daa900c0d3967a6ee7ac60271ee552-integrity/node_modules/rxjs'
 
 npm manifest: 
   {

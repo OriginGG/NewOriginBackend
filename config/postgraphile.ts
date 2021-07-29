@@ -1,6 +1,8 @@
 import FederationPlugin from "@graphile/federation";
 import pgSimplifyInflector from '@graphile-contrib/pg-simplify-inflector'
 import { mergeDeepRight } from 'ramda'
+import PostGraphileUploadFieldPlugin from "postgraphile-plugin-upload-field"
+
 
 const local = {
   options: {
@@ -80,7 +82,7 @@ const common = {
     simpleCollections: 'only',
     dynamicJson: true,
     enableCors: true,
-    appendPlugins: [pgSimplifyInflector]
+    appendPlugins: [pgSimplifyInflector, PostGraphileUploadFieldPlugin],
   }
 }
 
